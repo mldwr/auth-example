@@ -5,6 +5,7 @@ export default function Header() {
   const navigate = useNavigate();
 
   const logOut = () => {
+    console.log('logOut', sessionStorage.getItem('token'));
     if (typeof window !== 'undefined') {
       sessionStorage.removeItem('token');
       navigate('/signin', { replace: true });

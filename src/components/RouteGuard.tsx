@@ -6,6 +6,7 @@ import Header from "./Header";
 export default function RouteGuard(props: { children?: JSX.Element }) {
   const navigate = useNavigate();
   const getToken = () => {
+    console.log('getToken', sessionStorage.getItem('token'));
     if (typeof window !== 'undefined') {
       return sessionStorage.getItem('token');
     }

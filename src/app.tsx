@@ -1,3 +1,4 @@
+
 import { Route, Router } from '@solidjs/router';
 import Home from './routes/home';
 import SignIn from './routes/signin';

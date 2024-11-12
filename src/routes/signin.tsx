@@ -1,14 +1,20 @@
 import { useNavigate } from "@solidjs/router";
 import { createEffect } from "solid-js";
 import appstyles from "../app.module.css";
+import { authorize } from "~/auth";
 
 export default function SignIn() {
   const navigate = useNavigate();
   
-  const logIn = () => {
+  const logIn = async () => {
+    console.log('logIn');
     if (typeof window !== 'undefined') {
-      sessionStorage.setItem('token', 'mytokenisawesome');
-      navigate('/home', { replace: true });
+      const result = await authorize('user@sld.com','12345678');
+      console.log('user client', result);
+      if (result) {
+        sessionStorage.setItem('token', 'mySessionToken');
+        navigate('/home', { replace: true });
+      }
     }
   };
 
