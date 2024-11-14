@@ -10,7 +10,7 @@ export default function SignIn() {
   
   const logIn = async () => {
     if (typeof window !== 'undefined') {
-      const result = await authorize(username(), password());
+      const result = await authorize(username(), password()); 
       console.log('user client', result);
       if (result) {
         sessionStorage.setItem('token', 'mySessionToken');
